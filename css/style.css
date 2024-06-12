@@ -1,0 +1,268 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #000;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    padding: 10px;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #309438;
+    font-size: 17px;
+    padding: 10px;
+    transition: transform 0.5s;
+}
+
+header nav ul li a:hover {
+    transform: scale(1.1);
+    text-decoration: underline;
+}
+
+#logotipo img {
+    width: 80px;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+#logotipo img:hover {
+    transform: scale(1.1);
+}
+
+#menu {
+    display: none;
+}
+
+#menu img {
+    width: 35px;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+#menu img:hover {
+    transform: scale(1.2);
+}
+
+#zap {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+#zap a img {
+    width: 50px;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+#zap a img:hover {
+    transform: scale(1.1);
+}
+
+#container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+#valoresBack {
+    background: url('images/interna.jpeg') no-repeat center center;
+    background-size: cover;
+    padding: 20px;
+}
+
+.background-container {
+    position: relative;
+    padding: 20px;
+}
+
+.tab {
+    width: 100%;
+    max-width: 600px; /* Defina uma largura máxima */
+    margin: 20px auto; /* Centralizar a guia */
+    padding: 20px;
+    border: 2px solid #309438;
+    border-radius: 7px;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    color: #ddd;
+    box-shadow: 0 16px 16px rgba(0, 0, 0, 0.9);
+    text-align: center; /* Alinhar o conteúdo ao centro */
+    position: relative; /* Adiciona posicionamento relativo para poder centralizar a guia */
+
+}
+
+.tab h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #309438;
+}
+
+.tab table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tab table th, .tab table td {
+    border: 1px solid #309438;
+    padding: 8px;
+    text-align: left;
+}
+
+.tab table th {
+    background-color: #309438;
+    color: #fff;
+    text-align: center;
+}
+
+.tab table tr {
+    background-color: #151615;
+    color: #ddd;
+}
+
+.tab table tr:nth-child(even) {
+    background-color: #000;
+    color: #b9c4b9;
+    transition: 0.7s;
+}
+
+.tab table tr:hover {
+    background-color: #044e08;
+    transition: 0.7s;
+}
+
+.tab footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    background: none;
+}
+
+.tab footer button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    padding: 16px;
+    border-radius: 9px;
+    background-color: #309438;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+.tab footer button:hover {
+    transform: scale(1.1);
+}
+
+.tab footer button a {
+    text-decoration: none;
+    color: #ddd;
+}
+
+footer {
+    padding: 10px;
+    text-align: center;
+    background-color: #000;
+    color: white;
+}
+
+#mapBox {
+    margin: 64px auto;
+    position: relative;
+    width: 500px;
+    height: 300px;
+    background: #000000;
+    text-align: center;
+    color: #309438;
+}
+
+#mapBox iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* Animação para o dropdown menu */
+.dropdown-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #000;
+    position: absolute;
+    top: 60px; /* Ajuste conforme necessário */
+    right: 10px; /* Ajuste conforme necessário */
+    border: 1px solid #309438;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: translateY(-10px);
+    pointer-events: none; /* Inicialmente desabilita os eventos de clique */
+}
+
+.dropdown-menu.show {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto; /* Habilita os eventos de clique quando o menu está visível */
+}
+
+.dropdown-menu a {
+    color: #309438;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background-color: #309438;
+    color: #fff;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    nav#menuNav {
+        display: none;
+    }
+
+    #menu {
+        display: block;
+    }
+
+    #dropdownMenu {
+        display: flex;
+    }
+}
