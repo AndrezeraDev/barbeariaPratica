@@ -4,6 +4,7 @@ body {
     color: white;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 header {
@@ -105,24 +106,18 @@ main {
     padding: 20px;
 }
 
-.background-container {
-    position: relative;
-    padding: 20px;
-}
-
 .tab {
     width: 100%;
-    max-width: 600px; /* Defina uma largura máxima */
-    margin: 20px auto; /* Centralizar a guia */
+    max-width: 600px;
+    margin: 20px auto;
     padding: 20px;
     border: 2px solid #309438;
     border-radius: 7px;
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    background-color: rgba(0, 0, 0, 0.5);
     color: #ddd;
     box-shadow: 0 16px 16px rgba(0, 0, 0, 0.9);
-    text-align: center; /* Alinhar o conteúdo ao centro */
-    position: relative; /* Adiciona posicionamento relativo para poder centralizar a guia */
-
+    text-align: center;
+    position: relative;
 }
 
 .tab h1 {
@@ -136,7 +131,8 @@ main {
     border-collapse: collapse;
 }
 
-.tab table th, .tab table td {
+.tab table th,
+.tab table td {
     border: 1px solid #309438;
     padding: 8px;
     text-align: left;
@@ -199,16 +195,86 @@ footer {
     text-align: center;
     background-color: #000;
     color: white;
+    display: flex;
+    justify-content: space-between; /* Para garantir que os elementos fiquem lado a lado */
+    flex-wrap: wrap; /* Permitir que os elementos quebrem para baixo em telas menores */
+}
+
+#title {
+    margin-top: 55px;
+    margin-bottom: -75px;
+    text-align: center;
+    color: #309438;
+}
+
+#container-galery {
+    margin-top: 100px;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+}
+
+.slider {
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+    flex: 1;
+    overflow: hidden;
+}
+
+.slide img {
+    align-items: center;
+    width: 100%;
+    vertical-align: top;
+}
+
+.manual-navigation {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+}
+
+.manual-btn {
+    border: 2px solid #309438;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+.manual-btn:hover {
+    background-color: #309438;
 }
 
 #mapBox {
-    margin: 64px auto;
-    position: relative;
-    width: 500px;
+    margin: 32px auto;
+    width: 50%;
+    max-width: 600px; /* Definir um valor máximo adequado */
     height: 300px;
-    background: #000000;
-    text-align: center;
-    color: #309438;
+    background: #272727;
+    text-align: left;
+    color: #fff;
 }
 
 #mapBox iframe {
@@ -216,27 +282,54 @@ footer {
     height: 100%;
 }
 
-/* Animação para o dropdown menu */
+#contactInfo {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #272727;
+    color: #fff;
+    text-align: left;
+    width: 50%;
+    max-width: 600px; /* Definir um valor máximo adequado */
+    box-sizing: border-box; /* Garante que o padding não adicione à largura */
+}
+
+#contactInfo h2 {
+    color: #309438;
+}
+
+#contactInfo p {
+    margin: 10px 0;
+}
+
+#contactInfo a {
+    color: #309438;
+    text-decoration: none;
+}
+
+#contactInfo a:hover {
+    text-decoration: underline;
+}
+
 .dropdown-menu {
     display: none;
     flex-direction: column;
     background-color: #000;
     position: absolute;
-    top: 60px; /* Ajuste conforme necessário */
-    right: 10px; /* Ajuste conforme necessário */
+    top: 60px;
+    right: 10px;
     border: 1px solid #309438;
     border-radius: 8px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
     transform: translateY(-10px);
-    pointer-events: none; /* Inicialmente desabilita os eventos de clique */
+    pointer-events: none;
 }
 
 .dropdown-menu.show {
     display: flex;
     opacity: 1;
     transform: translateY(0);
-    pointer-events: auto; /* Habilita os eventos de clique quando o menu está visível */
+    pointer-events: auto;
 }
 
 .dropdown-menu a {
@@ -252,7 +345,6 @@ footer {
     color: #fff;
 }
 
-/* Media Queries */
 @media (max-width: 768px) {
     nav#menuNav {
         display: none;
@@ -265,4 +357,36 @@ footer {
     #dropdownMenu {
         display: flex;
     }
+
+    #mapBox,
+    #contactInfo {
+        width: 100%;
+        max-width: none;
+    }
+
+    #mapBox {
+        margin: 32px auto 10px;
+    }
+
+    #contactInfo {
+        margin-top: 10px;
+    }
+}
+
+#foot {
+    padding: 10px;
+    text-align: center;
+    background-color: #272727;
+    color: white;
+}
+
+#verification {
+    margin-top: 35px;
+    background-color: #272727;
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
 }
